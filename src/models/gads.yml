@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: gads
+    config:
+      y42_source:
+        type: cdata-googleads
+        connection: "gads"
+        settings:
+          custom_incremental_keys:
+            - table_name: AdGroup
+              column_name: Date
+            - table_name: Campaign
+              column_name: Date
+          disabled_tables:
+            - DetailPlacementView
+            - KeywordThemeConstant
+      y42:
+        apiVersion: v3
+    meta:
+      experts:
+        users:
+          - mail-product-support@y42.com
+    tables:
+      - name: CampaignStatsReport
+        config:
+          y42_table:
+            query_file: gads_CampaignStatsReport
+            settings:
+              incremental: true
+              default_state: "2021-01-01"
+              column: STATE
