@@ -13,4 +13,6 @@ UNION ALL
 SELECT 3 AS my_column
 UNION ALL
 SELECT 4 AS my_column
+UNION ALL
+SELECT 5 AS my_column
 
